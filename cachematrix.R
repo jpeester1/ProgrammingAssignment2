@@ -1,7 +1,7 @@
 # makeCacheMatrix takes a new matrix as an argument. It returns a list containing 4 functions to operate on this matrix
 #cacheSolve takes a matrix created using makeCacheMatrix as input, checks to see if the inverse of this matrix 
 #is cached. If so,the cached version is returned otherwise the function calculates the inverse of the function 
-#and stores it in the cache environments using the <<- operator
+#and stores it in the cache environment using the <<- operator
 
 
 
@@ -22,10 +22,11 @@ makeCacheMatrix <- function(x = matrix()) {
                 x <<- y
                 m <<- NULL
         }
-        #pass in an inverse of a matrix, assign it to our cahced matrix variabe
+        #when passed in an inverse of a matrix, assign it to our cahced matrix variabe
         setinverse <- function(inverse) m <<- inverse
         #get the inverse 
         getinverse <- function() m
+        #return a list containing our 4 functions to operate on the matrix
         list(set = set, get = get,
              setinverse = setinverse,
              getinverse = getinverse)
